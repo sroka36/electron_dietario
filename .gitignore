@@ -4,6 +4,8 @@ dist
 out
 build
 .vscode
+ARCHITECTURE.md
+preload.js
 
 # Generic
 *.log
