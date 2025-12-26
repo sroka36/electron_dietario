@@ -5,11 +5,45 @@
     <meta charset="UTF-8">
     <title>가계부</title>
     <!-- Content Security Policy to secure the app -->
+    <link rel="stylesheet" href="style.css">
     <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
 </head>
 
 <body>
-    <h1>가계부를 어캐 만들지</h1>
+    <div style="display: flex; justify-content: space-between;margin-bottom: 20px;">
+        <span style="font-size: 24px;">가계부</span>
+        <div style="display: flex;">
+            <button style="margin-left: 50px; padding: 6px 12px;border-radius: 16px;border: none;">+</button>
+            <button
+                style="margin-left: 20px; padding: 6px 12px;border-radius: 16px;border: none; text-align: center;">-</button>
+        </div>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>날짜</th>
+                <th>분류</th>
+                <th>내용</th>
+                <th>금액</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>2025-12-26</td>
+                <td>식사</td>
+                <td>밥</td>
+                <td class="number">10000</td>
+            </tr>
+            <tr>
+                <td>2025-12-27</td>
+                <td>식사</td>
+                <td>밥</td>
+                <td class="number">120000</td>
+            </tr>
+        </tbody>
+    </table>
+    <script src="index.js"></script>
 </body>
 
 </html>
