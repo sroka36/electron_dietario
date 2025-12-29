@@ -8,3 +8,7 @@
 //         replaceText(`${dependency}-version`, process.versions[dependency])
 //     }
 // })
+
+if (window.localStorage.getItem("num") === null) {
+    window.localStorage.setItem("num", 0)
+}
