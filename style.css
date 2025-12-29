@@ -25,3 +25,27 @@ th {
     border-bottom: 2px solid #ddd;
     /* 제목 아래는 조금 더 진하게 */
 }
+
+
+
+.plusBtn {
+    margin-left: 50px;
+    padding: 12px 15px;
+    border-radius: 16px;
+    border: none;
+}
+
+.minusBtn {
+    margin-left: 20px;
+    padding: 12px 15px;
+    border-radius: 16px;
+    border: none;
+    text-align: center;
+}
+
+#addDialog{
+    border: none;
+    width: 500px;
+    height: 300px;
+    border-radius: 50px;
+}

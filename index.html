@@ -13,10 +13,8 @@
     <div style="display: flex; justify-content: space-between;margin-bottom: 20px;">
         <span style="font-size: 24px;">가계부</span>
         <div style="display: flex;">
-            <button onclick="plusDietario()"
-                style="margin-left: 50px; padding: 12px 15px;border-radius: 16px;border: none;">+</button>
-            <button onclick="deleteDietario()"
-                style="margin-left: 20px; padding: 12px 15px;border-radius: 16px;border: none; text-align: center;">-</button>
+            <button class="plusBtn">+</button>
+            <button class="minusBtn">-</button>
         </div>
     </div>
 
@@ -31,6 +29,13 @@
         </thead>
         <tbody class="dietario"></tbody>
     </table>
+    <dialog id="addDialog">
+        <h2>알림</h2>
+        <p>뒷배경이 흐릿해졌나요?</p>
+        <input type="text" class="current">
+        <br>
+        <button onclick="closeDialog()">닫기</button>
+    </dialog>
     <script src="index.js"></script>
 </body>
 

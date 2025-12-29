@@ -1,10 +1,3 @@
-number = document.querySelectorAll(".number")
-
-//숫자 양식 지정.
-for (let i = 0; i < number.length; i++) {
-    number[i].textContent = parseInt(number[i].textContent).toLocaleString("ko-KR")
-}
-
 num = parseInt(window.localStorage.getItem("num"))
 
 if (num != 0) {
@@ -22,11 +15,15 @@ if (num != 0) {
     }
 }
 
+const addScreen = document.getElementById("addDialog")
 
 
-
-function plusDietario() {
+function closeDialog() {
+    
     num = parseInt(window.localStorage.getItem("num"))
+
+    const cur = parseInt(document.querySelector(".current").textContent)
+
     const tbody = document.querySelector(".dietario")
     const newRow = document.createElement("tr")
     newRow.className = "row-" + num
@@ -34,14 +31,24 @@ function plusDietario() {
         <td>2025-12-27</td>
         <td>.</td>
         <td>.</td>
-        <td class="number">3000</td>
+        <td class="number">${cur}</td>
     `
     tbody.appendChild(newRow)
     num += 1
     window.localStorage.setItem("num", num)
+    addScreen.close()
 }
 
-function deleteDietario() {
+
+
+document.querySelector(".plusBtn").addEventListener("click", () => {
+    
+    
+    addScreen.showModal()
+
+}
+)
+document.querySelector(".minusBtn").addEventListener("click", () => {
     const tbody = document.querySelector(".dietario")
     num = parseInt(window.localStorage.getItem("num"))
     if (num > 0) {
@@ -50,4 +57,13 @@ function deleteDietario() {
         num -= 1
         window.localStorage.setItem("num", num)
     }
+
+}
+)
+
+number = document.querySelectorAll(".number")
+
+//숫자 양식 지정.
+for (let i = 0; i < number.length; i++) {
+    number[i].textContent = parseInt(number[i].textContent).toLocaleString("ko-KR")
 }
