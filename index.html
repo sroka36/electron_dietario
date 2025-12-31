@@ -32,9 +32,18 @@
     <dialog id="addDialog">
         <h2>알림</h2>
         <p>뒷배경이 흐릿해졌나요?</p>
-        <input type="text" class="current">
         <br>
-        <button onclick="closeDialog()">닫기</button>
+        <form method="dialog">
+            <input type="date" placeholder="날짜를 입력해주세요." class="day">
+            <br>
+            <input type="text" placeholder="이름을 입력해주세요." class="name">
+            <br>
+            <textarea placeholder="내용을 입력하세요" class="content"></textarea>
+            <br>
+            <input type="text" placeholder="금액을 입력해주세요." class="current">
+            <br>
+            <button type="submit">테스트</button>
+        </form>
     </dialog>
     <script src="index.js"></script>
 </body>

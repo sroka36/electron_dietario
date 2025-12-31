@@ -18,36 +18,33 @@ if (num != 0) {
 const addScreen = document.getElementById("addDialog")
 
 
-function closeDialog() {
-    
+const name = addScreen.querySelector(".name")
+const day = addScreen.querySelector(".day")
+const current = addScreen.querySelector(".current")
+const detail = addScreen.querySelector(".content")
+
+addScreen.addEventListener('close', () => {
     num = parseInt(window.localStorage.getItem("num"))
 
-    const cur = parseInt(document.querySelector(".current").textContent)
+    const cur = parseInt(current.value).toLocaleString("ko-KR")
 
     const tbody = document.querySelector(".dietario")
     const newRow = document.createElement("tr")
     newRow.className = "row-" + num
     newRow.innerHTML = `
-        <td>2025-12-27</td>
-        <td>.</td>
-        <td>.</td>
+        <td>${day.value}</td>
+        <td>${name.value}</td>
+        <td>${detail.value}</td>
         <td class="number">${cur}</td>
     `
     tbody.appendChild(newRow)
     num += 1
     window.localStorage.setItem("num", num)
-    addScreen.close()
-}
+  });
 
 
+document.querySelector(".plusBtn").addEventListener("click", () => {addScreen.showModal()})
 
-document.querySelector(".plusBtn").addEventListener("click", () => {
-    
-    
-    addScreen.showModal()
-
-}
-)
 document.querySelector(".minusBtn").addEventListener("click", () => {
     const tbody = document.querySelector(".dietario")
     num = parseInt(window.localStorage.getItem("num"))
