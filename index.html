@@ -30,10 +30,9 @@
         <tbody class="dietario"></tbody>
     </table>
     <dialog id="addDialog">
-        <h2>알림</h2>
-        <p>뒷배경이 흐릿해졌나요?</p>
+        <h2>다이얼로그</h2>
         <br>
-        <form method="dialog">
+        <form method="dialog" style="text-align: center;">
             <input type="date" placeholder="날짜를 입력해주세요." class="day">
             <br>
             <input type="text" placeholder="이름을 입력해주세요." class="name">
@@ -42,7 +41,10 @@
             <br>
             <input type="text" placeholder="금액을 입력해주세요." class="current">
             <br>
-            <button type="submit">테스트</button>
+            <menu>
+                <button value="cancel">취소</button>
+                <button value="confirm">테스트</button>
+            </menu>
         </form>
     </dialog>
     <script src="index.js"></script>

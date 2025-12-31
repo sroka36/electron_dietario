@@ -24,6 +24,10 @@ const current = addScreen.querySelector(".current")
 const detail = addScreen.querySelector(".content")
 
 addScreen.addEventListener('close', () => {
+    if (addScreen.returnValue === "cancel") {
+        console.log("취소 버튼을 눌렀네요. 아무것도 하지 않습니다.");
+        return;
+    }
     num = parseInt(window.localStorage.getItem("num"))
 
     const cur = parseInt(current.value).toLocaleString("ko-KR")
@@ -38,12 +42,16 @@ addScreen.addEventListener('close', () => {
         <td class="number">${cur}</td>
     `
     tbody.appendChild(newRow)
+    addScreen.querySelector("form").reset();
     num += 1
     window.localStorage.setItem("num", num)
   });
 
 
-document.querySelector(".plusBtn").addEventListener("click", () => {addScreen.showModal()})
+document.querySelector(".plusBtn").addEventListener("click", () => {
+    addScreen.showModal()
+    day.value = new Date().toLocaleDateString('en-CA');
+})
 
 document.querySelector(".minusBtn").addEventListener("click", () => {
     const tbody = document.querySelector(".dietario")
@@ -57,6 +65,7 @@ document.querySelector(".minusBtn").addEventListener("click", () => {
 
 }
 )
+
 
 number = document.querySelectorAll(".number")
 
