@@ -1,15 +1,16 @@
 num = parseInt(window.localStorage.getItem("num"))
 
 if (num != 0) {
+    const data = JSON.parse(localStorage.getItem("tempdiet"))
     for (let i = 0; i < num; i++) {
         const tbody = document.querySelector(".dietario")
         const newRow = document.createElement("tr")
         newRow.className = "row-" + i
         newRow.innerHTML = `
-        <td>2025-12-27</td>
-        <td>.</td>
-        <td>.</td>
-        <td class="number">3000</td>
+        <td>${data[i].days}</td>
+        <td>${data[i].names}</td>
+        <td>${data[i].details}</td>
+        <td class="number">${data[i].amount}</td>
         `
         tbody.appendChild(newRow)
     }
@@ -42,6 +43,13 @@ addScreen.addEventListener('close', () => {
         <td class="number">${cur}</td>
     `
     tbody.appendChild(newRow)
+    const data = {
+        days : day.value,
+        names : name.value,
+        details : detail.value,
+        amount : current.value
+    }
+    saveJson(data)
     addScreen.querySelector("form").reset();
     num += 1
     window.localStorage.setItem("num", num)
@@ -58,6 +66,9 @@ document.querySelector(".minusBtn").addEventListener("click", () => {
     num = parseInt(window.localStorage.getItem("num"))
     if (num > 0) {
         const rowToDelete = document.querySelector(`.row-${num - 1}`)
+        const data = JSON.parse(localStorage.getItem("tempdiet"))
+        data.pop()
+        localStorage.setItem("tempdiet", JSON.stringify(data))
         if (rowToDelete) { tbody.removeChild(rowToDelete) }
         num -= 1
         window.localStorage.setItem("num", num)
@@ -65,6 +76,14 @@ document.querySelector(".minusBtn").addEventListener("click", () => {
 
 }
 )
+
+function saveJson(json){
+    const loadedData = JSON.parse(localStorage.getItem("tempdiet")) || []
+
+    loadedData.push(json)
+
+    localStorage.setItem("tempdiet", JSON.stringify(loadedData))
+}
 
 
 number = document.querySelectorAll(".number")
