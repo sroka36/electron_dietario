@@ -9,8 +9,9 @@ if (num != 0) {
         newRow.innerHTML = `
         <td>${data[i].days}</td>
         <td>${data[i].names}</td>
-        <td>${data[i].details}</td>
+        <td>${data[i].types}</td>
         <td class="number">${data[i].amount}</td>
+        <td>${data[i].details}</td>
         `
         tbody.appendChild(newRow)
     }
@@ -23,12 +24,10 @@ const name = addScreen.querySelector(".name")
 const day = addScreen.querySelector(".day")
 const current = addScreen.querySelector(".current")
 const detail = addScreen.querySelector(".content")
+const type = addScreen.querySelector(".select")
 
 addScreen.addEventListener('close', () => {
-    if (addScreen.returnValue === "cancel") {
-        console.log("취소 버튼을 눌렀네요. 아무것도 하지 않습니다.");
-        return;
-    }
+    if (addScreen.returnValue === "cancel") {return}
     num = parseInt(window.localStorage.getItem("num"))
 
     const cur = parseInt(current.value).toLocaleString("ko-KR")
@@ -39,13 +38,15 @@ addScreen.addEventListener('close', () => {
     newRow.innerHTML = `
         <td>${day.value}</td>
         <td>${name.value}</td>
-        <td>${detail.value}</td>
+        <td>${type.value}</td>
         <td class="number">${cur}</td>
+        <td>${detail.value}</td>
     `
     tbody.appendChild(newRow)
     const data = {
         days : day.value,
         names : name.value,
+        types : type.value,
         details : detail.value,
         amount : current.value
     }
@@ -56,8 +57,19 @@ addScreen.addEventListener('close', () => {
   });
 
 
+document.querySelector(".setting").addEventListener("click", () =>{
+    document.querySelector("#setting").showModal()
+})
+
 document.querySelector(".plusBtn").addEventListener("click", () => {
     addScreen.showModal()
+    const sel = addScreen.querySelector("select")
+    sel.innerHTML = `<option value="" disabled selected>유형을 선택해주세요</option>`
+    const typelist = ["식비", "여가","도서"]
+    typelist.forEach((item) => {
+        sel.innerHTML += `<option value="${item}">${item}</option>`
+    })
+    
     day.value = new Date().toLocaleDateString('en-CA');
 })
 
@@ -74,8 +86,7 @@ document.querySelector(".minusBtn").addEventListener("click", () => {
         window.localStorage.setItem("num", num)
     }
 
-}
-)
+})
 
 function saveJson(json){
     const loadedData = JSON.parse(localStorage.getItem("tempdiet")) || []

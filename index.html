@@ -15,31 +15,46 @@
         <div style="display: flex;">
             <button class="plusBtn">+</button>
             <button class="minusBtn">-</button>
+            <button class="setting">⚙️</button>
         </div>
     </div>
-
+    <div class="menu-box">
+        <ul>
+            <li><a href="#">홈</a></li>
+            <li><a href="#">고정지출</a></li>
+            <li><a href="#">통계</a></li>
+         </ul>
+        
+    </div>
     <table>
         <thead>
             <tr>
                 <th>날짜</th>
-                <th>분류</th>
-                <th>내용</th>
+                <th>항목</th>
+                <th>유형</th>
                 <th>금액</th>
+                <th>비고</th>
             </tr>
         </thead>
         <tbody class="dietario"></tbody>
     </table>
+    <dialog id="setting">
+        <h2>세팅</h2>
+    </dialog>
     <dialog id="addDialog">
         <h2 style="text-align: center;">소비 내역을 입력하세요</h2>
         <br>
         <form method="dialog" style="text-align: center;">
             <input type="date" placeholder="날짜를 입력해주세요." class="day">
             <br>
-            <input style="margin-top: 8px;border-radius: 10px;border:1px solid" type="text" placeholder="이름을 입력해주세요." class="name">
+            <input style="margin-top: 8px;border-radius: 10px;border:1px solid" type="text" placeholder="항목을 입력해주세요." class="name">
             <br>
-            <textarea style=" margin-top: 8px; margin-bottom: 8px; border-radius: 10px;border:1px solid" placeholder="내용을 입력하세요" class="content"></textarea>
+            <select style="margin-top: 8px;margin-bottom: 8px ;border-radius: 10px;border:1px solid" class="select">
+            </select>
             <br>
             <input style="margin-bottom:8px; border-radius: 10px;border:1px solid" type="text" placeholder="금액을 입력해주세요." class="current">
+            <br>
+            <textarea style=" margin-top: 8px; margin-bottom: 8px; border-radius: 10px;border:1px solid" placeholder="비고를 입력하세요" class="content"></textarea>
             <br>
             <button style="border-radius: 10px;border:1px solid;margin-right: 7px;" value="cancel">취소</button>
             <button style="border-radius: 10px;border:1px solid" value="confirm">확인</button>

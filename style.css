@@ -37,6 +37,13 @@ th {
 
 .minusBtn {
     margin-left: 20px;
+    padding: 12px 17px;
+    border-radius: 16px;
+    border: none;
+    text-align: center;
+}
+.setting {
+    margin-left: 20px;
     padding: 12px 15px;
     border-radius: 16px;
     border: none;
@@ -48,4 +55,21 @@ th {
     width: 500px;
     height: 300px;
     border-radius: 50px;
+}
+
+.menu-box{
+    margin-bottom: 20px;
+    text-align: center;
+    background-color: aliceblue;
+    border-radius: 10px;
+}
+
+.menu-box>ul>li{
+    display: inline-block;
+    padding: 10px 30px;
+}
+.menu-box>ul>li>a{
+    text-decoration: none;
+    font-size: 1.2rem;
+    color: black;
 }
