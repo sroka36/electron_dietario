@@ -97,6 +97,11 @@ function saveJson(json){
 }
 
 
+document.querySelector(".st-add").addEventListener("click", () => {
+    document.querySelector(".tdlist").innerHTML += `<td>안녕</td>
+    <td>안녕</td>`
+})
+
 number = document.querySelectorAll(".number")
 
 //숫자 양식 지정.

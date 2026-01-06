@@ -38,7 +38,24 @@
         <tbody class="dietario"></tbody>
     </table>
     <dialog id="setting">
-        <h2>세팅</h2>
+        <div style="display: flex;margin-left: 85%;">
+            <button class="st-add">+</button>
+        </div>
+        <br>
+        <table>
+            <thead>
+                <th>명칭</th>
+                <th>설명</th>
+            </thead>
+            <tbody class="tdlist">
+            </tbody>
+        </table>
+        <br>
+        <div style="display: flex;margin-left: 30%;">
+            <button style="margin-right: 10px;" onclick="document.getElementById('setting').close()">취소</button>
+            <button>확인</button>
+        </div>
+
     </dialog>
     <dialog id="addDialog">
         <h2 style="text-align: center;">소비 내역을 입력하세요</h2>
