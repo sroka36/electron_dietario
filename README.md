@@ -4,11 +4,9 @@ Budget Tracker built in Electron
 
 ## Todo:
 
-- [ ] Make UI(like Excel cells).
-- [X] Make add, delete my expenses function.
-- [X] Make save, load function of my expenses data.
-- [ ] Add plus type function
-- [ ] Make calculating total expenses function.
-- [ ] Add fixed cost section.
-- [ ] Add Details of cost section.
-- [ ] Add Graph of my expenses situation.
+- [ ] Make function of adding types of expenses.
+- [ ] Add spaces of present currency and now currency.
+- [ ] Add income spaces.
+- [ ] Change UI better.
+- [ ] Add fixed expenses table
+- [ ] Add Statics(later add details)
