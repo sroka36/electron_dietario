@@ -65,7 +65,7 @@ document.querySelector(".plusBtn").addEventListener("click", () => {
     addScreen.showModal()
     const sel = addScreen.querySelector("select")
     sel.innerHTML = `<option value="" disabled selected>유형을 선택해주세요</option>`
-    const typelist = ["식비", "여가","도서"]
+    const typelist = JSON.parse(localStorage.getItem("sttype")) || []
     typelist.forEach((item) => {
         sel.innerHTML += `<option value="${item}">${item}</option>`
     })
@@ -98,8 +98,11 @@ function saveJson(json){
 
 
 document.querySelector(".st-add").addEventListener("click", () => {
-    document.querySelector(".tdlist").innerHTML += `<td>안녕</td>
-    <td>안녕</td>`
+    const stdata = JSON.parse(localStorage.getItem("sttype")) || []
+    const ty = document.querySelector(".st-input").value
+    stdata.push(ty)
+    localStorage.setItem("sttype", JSON.stringify(stdata))
+    document.querySelector(".tdlist").innerHTML += `<td>${ty}</td>`
 })
 
 number = document.querySelectorAll(".number")
