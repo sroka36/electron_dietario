@@ -4,7 +4,7 @@ Budget Tracker built in Electron
 
 ## Todo:
 
-- [ ] Make function of adding types of expenses.
+- [X] Make function of adding types of expenses.
 - [ ] Add spaces of present currency and now currency.
 - [ ] Add income spaces.
 - [ ] Change UI better.
